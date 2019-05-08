@@ -1,0 +1,6 @@
+- flash.each do |type, message|
+  - if message.is_a?(String)
+    .alert{class: alert_class_for(type.to_s)}
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} x
+      = content_tag :div, message, :id => "flash_#{type}"
+  %br

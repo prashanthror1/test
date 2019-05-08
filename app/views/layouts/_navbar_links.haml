@@ -1,0 +1,27 @@
+%ul.nav.navbar-nav.navbar-right
+  - if user_signed_in?
+    - if current_user.is_admin?
+      %li
+        %a.nav-item.nav-link{href: admin_users_path}
+          %span.fa.fa-lock
+          Administration
+    %li
+      %a.nav-item.nav-link{href: edit_user_registration_path}
+        %span.fa.fa-edit
+        My Profile
+    %li
+      %a.nav-item.nav-link{href: destroy_user_session_path,
+                           rel: 'nofollow', 'data-method': 'delete'}
+        %span.fa.fa-sign-out
+        Sign out
+  -else
+    - if controller_name != 'registrations'
+      %li
+        %a.nav-item.nav-link{href: new_user_registration_path}
+          %span.fa.fa-user-plus
+          Sign up
+    - if controller_name != 'sessions'
+      %li
+        %a.nav-item.nav-link{href: new_user_session_path}
+          %span.fa.fa-sign-in
+          Log in

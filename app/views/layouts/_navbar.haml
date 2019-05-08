@@ -1,0 +1,15 @@
+%nav.navbar.navbar-fixed-top.navbar-inverse{ 'data-turbolinks': 'false' }
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.hidden-sm-up.collapsed{ type:  'button',
+          'aria-expanded': false, 'data-toggle': 'collapse',
+          'data-target': '#collapsing-navbar' }
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to root_path, class: 'navbar-brand' do
+        %i.fa.fa-wrench
+        TRIRIGA Utilities
+    .collapse.navbar-collapse#collapsing-navbar
+      = render 'layouts/navbar_links'
